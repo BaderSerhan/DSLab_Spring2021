@@ -109,32 +109,54 @@ public class ArrayList implements ArrayListInterface {
             return -1;
         }
 
-        //this works but it will mess the sorting of the array
-//        int temp;
-//        temp = arr[index];
-//        arr[index] = arr[arr.length - 1];
-//        arr[arr.length - 1] = temp;
-//
-//        return this.remove();
+        /*
+         * here we are replacing the element that we want to remove with the
+         * last element of the array using a temp value
+         * then we are calling the original remove() function to remove the last
+         * element
+         * even though this technically works, but it will mess the sorting of
+         * the array, i.e. the last element will change its position
+         *
+         * => NOT RECOMMENDED
+         *
+         * int temp;
+         * temp = arr[index];
+         * arr[index] = arr[arr.length - 1];
+         * arr[arr.length - 1] = temp;
+         * return this.remove();
+         *
+         */
+        //define new array with length + 1
         int[] arr2 = new int[arr.length - 1];
 
-        //array values[1,2,3,4,5]
-        //indexes .   [0,1,2,3,4]
-        //remove element at index = 2 => remove element = 3
-        //first for loop : 0 => 2
-        //arr2 = [1,2, -, - ]
-        //second for loop : 3 => 5
-        //arr2 = [1,2, 4,5]
+        //loop from 0 till element before the index
         for (int i = 0; i < index; i++) {
+            //copy all elements before index to the new array
             arr2[i] = arr[i];
         }
 
+        //loop from element after index to the end of the array
         for (int i = index + 1; i < arr.length; i++) {
+            /*
+             * copy all elements after the index
+             * taking into consideration that the element after the index will
+             * be placed at position i - 1, i.e. where the removed element
+             * should have been
+             */
             arr2[i - 1] = arr[i];
         }
 
         this.size--;
         this.arr = arr2;
         return arr[index];
+
+        //Example
+        //array values[1,2,3,4,5]
+        //indexes:    [0,1,2,3,4]
+        //remove element at index = 2 => remove element = 3
+        //first for loop : 0 => 2
+        //arr2 = [1,2, -, - ]
+        //second for loop : 3 => 5
+        //arr2 = [1,2, 4,5]
     }
 }
