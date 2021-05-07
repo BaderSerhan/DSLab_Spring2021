@@ -11,6 +11,9 @@ package array_list;
  */
 public interface ArrayListInterface {
 
+    //returns the actual size of the array
+    public int getSize();
+
     //returns if the arraylist is empty or not
     public boolean isEmpty();
 
@@ -33,5 +36,5 @@ public interface ArrayListInterface {
     public int remove();
 
     //merges another arraylist to the original
-//    public ArrayList concat(ArrayList l2);
+    public void concat(ArrayList l2);
 }

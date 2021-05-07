@@ -27,5 +27,15 @@ public class TestMain {
         l1.getSize();
         l1.print();
 
+        ArrayList l2 = new ArrayList();
+        l2.add(100, 0);
+        l2.print();
+        l2.add(200, 1);
+        l2.print();
+        l2.add(300, 5);
+        l2.print();
+
+        l1.concat(l2);
+        l1.print();
     }
 }

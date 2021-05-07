@@ -14,14 +14,15 @@ public class ArrayList implements ArrayListInterface {
     private int arr[];
     private int size;
 
-    public int getSize() {
-        System.out.println(size);
-        return size;
-    }
-
     public ArrayList() {
         this.arr = new int[0];
         this.size = 0;
+    }
+
+    @Override
+    public int getSize() {
+        System.out.println(size);
+        return size;
     }
 
     @Override
@@ -81,6 +82,29 @@ public class ArrayList implements ArrayListInterface {
         this.size++;
         this.arr = arr2;
 
+    }
+
+    public void add(int element, int index) {
+        if (index < 0) {
+            throw new IndexOutOfBoundsException();
+        } else if (index > size) {
+            System.out.println("Element added to the end of the array");
+            this.add(element);
+        } else {
+            int arr2[] = new int[arr.length + 1];
+            for (int i = 0; i < index; i++) {
+                //copy all elements before index to the new array
+                arr2[i] = arr[i];
+            }
+            //add new element at position index
+            arr2[index] = element;
+
+            for (int i = index + 1; i < arr2.length; i++) {
+                arr2[i] = arr[i - 1];
+            }
+            this.arr = arr2;
+            this.size++;
+        }
     }
 
     @Override
@@ -158,5 +182,12 @@ public class ArrayList implements ArrayListInterface {
         //arr2 = [1,2, -, - ]
         //second for loop : 3 => 5
         //arr2 = [1,2, 4,5]
+    }
+
+    @Override
+    public void concat(ArrayList list2) {
+        for (int i = 0; i < list2.getSize(); i++) {
+            this.add(list2.getElement(i));
+        }
     }
 }
