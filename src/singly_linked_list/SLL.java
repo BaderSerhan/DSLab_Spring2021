@@ -9,7 +9,7 @@ package singly_linked_list;
  *
  * @author ahmadkassem
  */
-public class SLL {
+public class SLL implements ListInterface {
 
     private Node head;
     private Node tail;
@@ -21,20 +21,24 @@ public class SLL {
         this.size = 0;
     }
 
+    @Override
     public boolean isEmpty() {
         if (size == 0) {
             return true;
         } else {
             return false;
         }
+        //or return size == 0;
     }
 
+    @Override
     public void makeEmpty() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
 
+    @Override
     public int length() {
         return this.size;
     }
@@ -47,6 +51,7 @@ public class SLL {
         return this.tail;
     }
 
+    @Override
     public int indexOf(int element) {
         Node virtualNode = this.head;
         int index = 0;
@@ -61,6 +66,7 @@ public class SLL {
         return -1;
     }
 
+    @Override
     public int getElement(int index) {
         Node virtualNode = this.head;
         int counter = 0;
@@ -76,6 +82,7 @@ public class SLL {
         return -1;
     }
 
+    @Override
     public void insertAtFront(int e) {
 
         Node n = new Node(e);
@@ -90,6 +97,7 @@ public class SLL {
         this.size++;
     }
 
+    @Override
     public void insertAtBack(int e) {
 
         Node n = new Node(e);
@@ -104,7 +112,8 @@ public class SLL {
         this.size++;
     }
 
-    public int removeFromHead() {
+    @Override
+    public int removeFromFront() {
 
         if (isEmpty()) {
             System.out.println("Linked List is Empty!!!");
@@ -117,7 +126,8 @@ public class SLL {
         }
     }
 
-    public int removeFromTail() {
+    @Override
+    public int removeFromBack() {
 
         if (isEmpty()) {
             System.out.println("Linked List is Empty!!!");
@@ -135,6 +145,7 @@ public class SLL {
         }
     }
 
+    @Override
     public void print() {
         Node current = head;
         while (current != null) {
@@ -175,9 +186,9 @@ public class SLL {
         l.insertAtBack(3);
         l.insertAtBack(4);
         l.print();
-        l.removeFromHead();
+        l.removeFromFront();
         l.print();
-        l.removeFromTail();
+        l.removeFromBack();
         l.print();
 
         SLL l2 = new SLL();

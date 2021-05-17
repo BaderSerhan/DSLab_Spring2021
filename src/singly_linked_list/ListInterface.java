@@ -12,29 +12,32 @@ package singly_linked_list;
 public interface ListInterface {
 
     //return size of list
-    int size();
+    int length();
 
     //returns if list is empty or not
     boolean isEmpty();
 
+    //empties the list
+    void makeEmpty();
+
     //gets node's element at given index
-    Object get(int index);
+    int getElement(int index);
 
     //gets index of given element's node
-    int indexOf(Object element);
+    int indexOf(int element);
+
+    //adds new node with value newElement at the beginning of the list
+    void insertAtFront(int newElement);
 
     //adds new node with value newElement at the end of the list
-    void add(Object newElement);
+    void insertAtBack(int newElement);
 
     //removes last node in list
-    void remove();
+    int removeFromFront();
 
     //removes node at given index
-    Object remove(int index);
+    int removeFromBack();
 
-    //removes node of given element
-    Object remove(Object element);
-    
     //prints the element of the array
     void print();
 }

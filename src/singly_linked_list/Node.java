@@ -11,20 +11,20 @@ package singly_linked_list;
  */
 public class Node {
 
-    private int e;
+    private int element;
     private Node next;
 
     public Node(int e) {
-        this.e = e;
+        this.element = e;
         this.next = null;
     }
 
     public int getE() {
-        return this.e;
+        return this.element;
     }
 
     public void setE(int e) {
-        this.e = e;
+        this.element = e;
     }
 
     public Node getNext() {
