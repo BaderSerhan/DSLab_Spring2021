@@ -54,11 +54,13 @@ public class DLL implements ListInterface {
     @Override
     public int indexOf(int element) {
         //TODO: ASSIGNMENT #2
+        return -1;
     }
 
     @Override
     public int getElement(int index) {
         //TODO: ASSIGNMENT #2
+        return -1;
     }
 
     @Override
@@ -74,11 +76,13 @@ public class DLL implements ListInterface {
     @Override
     public int removeFromFront() {
         //TODO: ASSIGNMENT #2
+        return -1;
     }
 
     @Override
     public int removeFromBack() {
         //TODO: ASSIGNMENT #2
+        return -1;
     }
 
     @Override

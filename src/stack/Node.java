@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package singly_linked_list;
+package stack;
 
 /**
  *
@@ -19,12 +19,12 @@ public class Node {
         this.next = null;
     }
 
-    public int getE() {
+    public int getElement() {
         return this.element;
     }
 
-    public void setE(int e) {
-        this.element = e;
+    public void setElement(int element) {
+        this.element = element;
     }
 
     public Node getNext() {
