@@ -17,8 +17,6 @@ public interface QueueInterface {
 
     void makeEmpty();
 
-    boolean isFull();
-
     int getFront();
 
     void enqueue(int e);
