@@ -78,10 +78,6 @@ public class ArrayStack implements StackInterface {
         }
     }
 
-    /*
-     * TODO: Implement the function merge that merges two ArrayStacks into one
-     * LinkedStack
-     */
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter a size");
