@@ -16,26 +16,31 @@ public class TestMain {
      */
     public static void main(String[] args) {
         ArrayList l1 = new ArrayList();
-        l1.getSize();
+//        l1.getSize();
         l1.add(10); //index 0
+        l1.add(10);
         l1.add(20); //index 1
         l1.add(15); //index 2
         l1.add(13); //index 3
-        l1.getSize();
+        l1.add(13);
+        l1.add(13);
+//        l1.getSize();
         l1.print();
-        l1.remove(2);
-        l1.getSize();
+//        l1.remove(2);
+//        l1.getSize();
+//        l1.print();
+        l1.removeDuplicates();
         l1.print();
 
-        ArrayList l2 = new ArrayList();
-        l2.add(100, 0);
-        l2.print();
-        l2.add(200, 1);
-        l2.print();
-        l2.add(300, 5);
-        l2.print();
-
-        l1.concat(l2);
-        l1.print();
+//        ArrayList l2 = new ArrayList();
+//        l2.add(100, 0);
+//        l2.print();
+//        l2.add(200, 1);
+//        l2.print();
+//        l2.add(300, 5);
+//        l2.print();
+//
+//        l1.concat(l2);
+//        l1.print();
     }
 }

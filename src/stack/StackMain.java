@@ -75,18 +75,29 @@ public class StackMain {
         }
     }
 
+    public static int countOdds(LinkedStack stack) {
+        if (stack.isEmpty()) {
+            return 0;
+        }
+        int c = 0;
+        if (stack.peek() % 2 != 0) {
+            c = 1;
+        }
+        stack.pop();
+        return c + countOdds(stack);
+    }
+
     public static void main(String[] args) {
-        ArrayStack stack1 = new ArrayStack(5);
+        LinkedStack stack1 = new LinkedStack();
         ArrayStack stack2 = new ArrayStack(3);
 
         stack1.push(10);
         stack1.push(20);
-        stack1.push(5);
+        stack1.push(50);
         stack1.push(30);
 
-        stack2.push(40);
-        stack2.push(50);
-
+//        stack2.push(40);
+//        stack2.push(50);
         /**
          * Stack1
          * 30
@@ -109,52 +120,12 @@ public class StackMain {
 //        LinkedStack mergedStack = merge(stack1, stack2);
 //        mergedStack.print();
         //---------------------------------------
-        System.out.println("Before getMin >>>>>");
-        stack1.print();
-        System.out.println("getMin >>>>>");
-        System.out.println(getMin(stack1));
-        System.out.println("After getMin >>>>>");
-        stack1.print();
+//        System.out.println("Before getMin >>>>>");
+//        stack1.print();
+//        System.out.println("getMin >>>>>");
+//        System.out.println(getMin(stack1));
+//        System.out.println("After getMin >>>>>");
+//        stack1.print();
+        System.out.println(countOdds(stack1));
     }
-
-    /*
-     * Implement the method public int getMin ( Stack s ) is used to return
-     * the smallest value found in a Stack. Take into consideration the
-     * following:
-     * -	Values are of integer type.
-     * -	The data must be kept in the stack after calling the method.
-     * -	The above method does not exist in the Stack class
-     * -	Example: A stack contains: 210 , 2 , 53 , 41 , 39 , 6 , 71; the
-     * returned value is 2, and the values in stack will remain unchanged.
-     * -	You can use all the basic (familiar) methods existing in Stack class.
-     * Just call the methods without implementing them.
-     *
-     */
-    public static int getMinT(ArrayStack s) { //or LinkedStack doesn't matter
-        if (s.isEmpty()) {
-            return -1;
-        } else {
-            int i = 0;
-            int[] tempArray = new int[s.length()];
-
-            int min = s.pop(); //initialize min
-            tempArray[i] = min;
-            i++;
-
-            while (!s.isEmpty()) {
-                if (s.peek() < min) {
-                    min = s.peek();
-                }
-                tempArray[i] = s.peek();
-                s.pop();
-                i++;
-            }
-
-            for (int j = tempArray.length - 1; j >= 0; j--) {
-                s.push(tempArray[j]);
-            }
-            return min;
-        }
-    }
-
 }

@@ -190,4 +190,14 @@ public class ArrayList implements ArrayListInterface {
             this.add(list2.getElement(i));
         }
     }
+
+    //assume you have a sorted array
+    public void removeDuplicates() {
+        for (int i = 0; i < size - 1; i++) { //added -1 to avoid index out of bounds exception which is thrown when comparing last element with the element after it
+            if (arr[i] == arr[i + 1]) {
+                remove(i);
+                i--; //decrement i in case a duplicate was found in order to check the value again for more than 2 duplicates
+            }
+        }
+    }
 }
