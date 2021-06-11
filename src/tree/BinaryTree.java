@@ -180,6 +180,53 @@ public class BinaryTree {
      * Recursively search key in left subtree
      * If not found, then search in right subtree
      */
+    public int getLevel(int element) {
+        if (root == null) {
+            return 0;
+        } else {
+            return getLevel(element, root, 1);
+        }
+    }
+
+    private int getLevel(int element, BinaryNode node, int level) {
+        if (root.getElement() == element) {
+            return level;
+        }
+
+        int result = getLevel(element, node.getLeft(), level + 1);
+
+        if (result != 0) {
+            return result;
+        }
+
+        result = getLevel(element, node.getRight(), level + 1);
+        return result;
+    }
+
+    public int countOneChildNodes() {
+        if (root == null) {
+            return 0;
+        }
+        return countOneChildNodes(root);
+    }
+
+    private int countOneChildNodes(BinaryNode root) {
+        if (root.isLeaf()) { //if root.getLeft() == null && root.getRight() == null
+            return 0;
+        } else if (root.getLeft() != null && root.getRight() == null) {
+            return 1 + countOneChildNodes(root.getLeft());
+        } else if (root.getLeft() == null && root.getRight() != null) {
+            return 1 + countOneChildNodes(root.getRight());
+        } else {
+            return 0 + countOneChildNodes(root.getLeft()) + countOneChildNodes(root.getRight());
+        }
+
+        /*
+         * OR if((root.getLeft() != null && root.getRight() == null) ||
+         * (root.getLeft() == null && root.getRight() != null))
+         */
+    }
+
     public static void main(String[] args) {
         BinaryNode b12 = new BinaryNode(12);
         BinaryNode b13 = new BinaryNode(18);
