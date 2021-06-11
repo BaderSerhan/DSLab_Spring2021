@@ -128,6 +128,58 @@ public class BinaryTree {
         }
     }
 
+    ///height of tree
+    public int height() {
+        return height(root);
+    }
+
+    private int height(BinaryNode n) {
+        if (n == null) {
+            return -1;
+        } else {
+            return 1 + Math.max((height(n.getLeft())), height(n.getRight()));
+        }
+    }
+
+    //max element
+    public int max() {
+        return max(root);
+    }
+
+    private int max(BinaryNode n) {
+        int maxValue = n.getElement();
+        if (n.getLeft() != null) {
+            maxValue = Math.max(maxValue, max(n.getLeft()));
+        }
+        if (n.getRight() != null) {
+            maxValue = Math.max(maxValue, max(n.getRight()));
+        }
+        return maxValue;
+    }
+
+    // even number
+    public void printEven() {
+        printEven(root);
+    }
+
+    private void printEven(BinaryNode n) {
+        if (n != null) {
+            printEven(n.getLeft());
+
+            if (n.getElement() % 2 == 0) {
+                System.out.print(n.getElement() + " ");
+            }
+            printEven(n.getRight());
+        }
+    }
+
+    /*
+     * Get Node Level:
+     * If node is null then return 0
+     * If node’s data is equal to key, then return level
+     * Recursively search key in left subtree
+     * If not found, then search in right subtree
+     */
     public static void main(String[] args) {
         BinaryNode b12 = new BinaryNode(12);
         BinaryNode b13 = new BinaryNode(18);
