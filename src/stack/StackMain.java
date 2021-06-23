@@ -12,7 +12,6 @@ package stack;
 public class StackMain {
 
     public static LinkedStack merge(ArrayStack s1, ArrayStack s2) {
-        //TODO: GRADED CLASSWORK
         LinkedStack newStack = new LinkedStack();
         LinkedStack tempStack = new LinkedStack();
 
